@@ -8,6 +8,7 @@ app = flask.Flask(__name__)
 
 #Datastore Constants:
 ENTITY_TYPE = 'StickyNote'
+test="testing"
 
 
 @app.route('/')
