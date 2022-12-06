@@ -1,0 +1,48 @@
+{% extends '_base.html' %}
+{% block title %}Sketched | Draw {% endblock %}
+
+{% block content %}
+
+<div id="paintArea" scroll="no">
+    <div class='mouse' id="mouse"></div>
+    <canvas id="canvas" scroll="no">
+    </canvas>
+</div>
+
+
+
+<div class="toolbar">
+    <div class="tools" id="tools-section">
+      <div class="tools-row">
+        <div class="tools-wrapper">
+            <label for="pencolor" id="pen-label"><h5>Color Selector</h5></label>
+            <input type="color" name="pencolor=" id="pencolor">
+        </div>
+        <div class="tools-wrapper">
+            <h5>Background Color:</h5>
+            <input type="color" id="background-color" />
+        </div>
+        <div class="tools-wrapper">
+            <h5><span id="tool-type"></span> </h5>
+            <input type="range" id="pen-weight-slider" value="5" />
+        </div>
+        <div class="tools-wrapper">
+            <h5 id= "tag-list">Tags:</h5>
+            <input type="form" id="tag-form" placeholder="Add a tag (max 3)" maxlength="16"/>
+        </div>
+      </div>
+      <div class="tools-row">
+        <button id="pen-button">Pen</button>
+        <button id="erase-button">Eraser</button>
+        <button id="clear-button">Clear</button>
+        <button id="save-button">Save</button>
+      </div>
+    </div>
+  </div>
+
+<script src="../static/js/draw.js"></script>
+<script src="https://unpkg.com/biri/dist/biri.min.js"></script> <!-- Only used for Creating IDs -->
+
+<!-- Replace script below -->
+
+{% endblock %}
