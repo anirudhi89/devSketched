@@ -69,7 +69,7 @@ def submit_confirmation(message):
 #     app.run()
     #JUST FOR DEBUGGING
 url = ''
-@app.route('/upload')
+@app.route('/upload', methods=["POST"])
 def return_image():
     uploaded_file = flask.request.files.get('file')
     content_type = uploaded_file.content_type
