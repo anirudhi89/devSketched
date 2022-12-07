@@ -1,6 +1,6 @@
 import flask
 from flask import request
-# from google.cloud import datastore
+from google.cloud import storage
 
 app = flask.Flask(__name__)
 
@@ -68,8 +68,17 @@ def submit_confirmation(message):
 #     app.debug = True
 #     app.run()
     #JUST FOR DEBUGGING
-
-
+url = ''
+@app.route('/upload')
+def return_image():
+    uploaded_file = flask.request.files.get('file')
+    content_type = uploaded_file.content_type
+    gcs_client = storage.Client()
+    storage_bucket = gcs_client.get_bucket('dev-sketched-bucket')
+    blob = storage_bucket.blob(uploaded_file.filename)
+    blob.upload_from_string(uploaded_file.read(), content_type=content_type)
+    self.url = blob.public_url
+    return flask.render_template("confirm.html", sketch_image = self.url)
 
 
 #Helper Methods
