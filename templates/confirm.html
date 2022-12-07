@@ -4,9 +4,10 @@
 
 <div>
     {% if value %}
-    <p>{{ value }}</p>
-    {% if sketch_image %}
-        <img src="{{ sketch_image }}">
+        <p>{{ value }}</p>
+    {% endif %}
+    {% if url %}
+        <img src="{{ url }}">
     {% endif %}
 </div>
 

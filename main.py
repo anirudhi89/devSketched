@@ -76,7 +76,7 @@ def return_image():
     storage_bucket = gcs_client.get_bucket('dev-sketched-bucket')
     blob = storage_bucket.blob(uploaded_file.filename)
     blob.upload_from_string(uploaded_file.read(), content_type=content_type)
-    return flask.render_template("confirm.html", sketch_image = blob.public_url)
+    return flask.render_template("confirm.html", url = blob.public_url)
 
 
 #Helper Methods
